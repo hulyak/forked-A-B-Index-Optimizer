@@ -9,10 +9,10 @@ COPY package*.json ./
 COPY client/package*.json ./client/
 COPY mcp/package*.json ./mcp/
 
-# Install dependencies
-RUN npm ci --only=production && \
-    cd client && npm ci --only=production && \
-    cd ../mcp && npm ci --only=production
+# Install all dependencies (including devDependencies for build)
+RUN npm ci && \
+    cd client && npm ci && \
+    cd ../mcp && npm ci
 
 # Copy source code
 COPY . .
