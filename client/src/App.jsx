@@ -82,7 +82,8 @@ function App() {
           ...prev,
           status: status.status,
           startTime,
-          results: null,
+          // Don't overwrite results if they've been set
+          results: prev?.results || null,
           error: null
         }));
       });
@@ -91,14 +92,18 @@ function App() {
       setTimeout(() => {
         try {
           const demoResults = generateDemoOptimizationResult(queries);
+          console.log('App: Demo results generated:', demoResults);
 
-          setOptimization({
+          const optimizationState = {
             status: 'completed',
             startTime,
             endTime: new Date().toISOString(),
             results: demoResults,
             error: null
-          });
+          };
+
+          console.log('App: Setting optimization state:', optimizationState);
+          setOptimization(optimizationState);
           setIsRunning(false);
           
           // Show success notification
@@ -299,7 +304,19 @@ function App() {
         )}
 
         {optimization && optimization.results && (
-          <ResultsDisplay results={optimization.results} />
+          <>
+            {console.log('App: Rendering ResultsDisplay with results:', optimization.results)}
+            <ResultsDisplay results={optimization.results} />
+          </>
+        )}
+
+        {optimization && !optimization.results && optimization.status === 'completed' && (
+          <div className="card">
+            <div className="p-8 text-center text-yellow-600">
+              <p className="font-semibold">⚠️ Optimization completed but no results generated</p>
+              <p className="text-sm mt-2">Check browser console for errors</p>
+            </div>
+          </div>
         )}
       </main>
 

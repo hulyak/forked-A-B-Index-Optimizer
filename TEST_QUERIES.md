@@ -1,7 +1,5 @@
 # Test Queries for Real Tiger Cloud Testing
 
-## 🧪 Use These Queries to Test Your Application
-
 ### Simple Test (30 seconds)
 
 **Query 1: Basic WHERE clause**
@@ -205,22 +203,6 @@ Before declaring success, verify:
 
 ---
 
-## 🎬 Video Recording Tips
-
-When recording your demo video, use these queries:
-
-**For 90-second video:**
-1. Use the "Medium Test" queries (2 queries)
-2. Shows complexity without taking too long
-3. Demonstrates all features clearly
-
-**For screenshots:**
-1. Use "Complex Test" (3 queries)
-2. Generates more interesting results
-3. Shows full capability
-
----
-
 ## 📊 Expected Performance
 
 ### With Real Tiger Cloud
@@ -241,28 +223,6 @@ When recording your demo video, use these queries:
 - **High confidence** (>90%): Clear winner, significant difference
 - **Medium confidence** (80-89%): Good improvement, recommended
 - **Low confidence** (<80%): Minimal difference, no change suggested
-
----
-
-## 🚀 Next Steps After Testing
-
-Once everything works:
-
-1. **Take screenshots** while running these tests
-2. **Record video** using Medium Test queries
-3. **Document any issues** you encountered
-4. **Note the performance improvements** you achieved
-5. **Update TESTING_CREDENTIALS.md** with real results
-
----
-
-## 💡 Pro Tips
-
-1. **Clear browser cache** between tests for consistent results
-2. **Use incognito mode** to avoid cached data
-3. **Keep developer tools open** (F12) to see network requests
-4. **Watch the Network tab** to see API calls to Tiger Cloud
-5. **Check Console tab** for any JavaScript errors
 
 ---
 

@@ -16,6 +16,15 @@ function ResultsDisplay({ results }) {
 
   const { strategies = {}, performance = {}, comparison = {}, recommendation = {} } = results;
 
+  // Debug logging
+  console.log('ResultsDisplay received:', {
+    hasStrategies: !!strategies,
+    strategyAIndexes: strategies?.strategyA?.indexes?.length,
+    strategyBIndexes: strategies?.strategyB?.indexes?.length,
+    comparisonData: comparison,
+    hasRecommendation: !!recommendation
+  });
+
   const getWinnerStrategy = () => {
     return comparison?.improvement?.faster || 'strategyA';
   };
@@ -42,10 +51,13 @@ function ResultsDisplay({ results }) {
       {/* Performance Comparison Chart */}
       <div className="card">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-          <TrendingUp size={24} />
+          <TrendingUp size={24} className="text-blue-600" />
           Performance Comparison
         </h2>
-        <PerformanceChart 
+        <p className="text-sm text-gray-600 mb-4">
+          Visual comparison shows {comparison?.improvement?.faster === 'strategyB' ? 'Strategy B' : 'Strategy A'} ({comparison?.improvement?.faster === 'strategyB' ? 'composite indexes' : 'single-column indexes'}) outperforming {comparison?.improvement?.faster === 'strategyB' ? 'Strategy A' : 'Strategy B'} ({comparison?.improvement?.faster === 'strategyB' ? 'single-column indexes' : 'composite indexes'}) by {Math.abs(comparison?.improvement?.percentage || 0).toFixed(1)}%.
+        </p>
+        <PerformanceChart
           strategyA={comparison?.strategyA}
           strategyB={comparison?.strategyB}
         />
@@ -336,7 +348,7 @@ function ResultsDisplay({ results }) {
                 </div>
                 <div className="bg-white border border-green-300 rounded p-3 text-sm font-mono overflow-x-auto">
                   <pre className="text-green-900">
-{(recommendation?.strategy === 'strategyA' ? strategies?.strategyA : strategies?.strategyB)?.indexes?.map((idx, i) => (
+{(recommendation?.strategy === 'strategyA' ? strategies?.strategyA : strategies?.strategyB)?.indexes?.map((idx) => (
   `-- ${idx.name}\n${idx.sql || `CREATE INDEX ${idx.name} ON ${idx.table || 'table_name'}(${idx.columns?.join(', ') || 'column'});`}`
 )).join('\n\n') || 'No SQL available'}
                   </pre>

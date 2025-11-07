@@ -14,6 +14,9 @@ export const generateDemoOptimizationResult = (queries) => {
 
   const queryCount = demoQueries.length;
 
+  console.log('Demo Mode: Generating results for', queryCount, 'queries');
+  console.log('Demo queries:', demoQueries);
+
   const strategies = {
     strategyA: {
       name: 'Basic Single-Column Strategy',
@@ -172,19 +175,32 @@ export const generateDemoOptimizationResult = (queries) => {
     }
   };
 
-  return {
+  const result = {
     strategies,
-    forks: { 
-      forkA: 'demo-strategy-a-fork', 
-      forkB: 'demo-strategy-b-fork' 
+    forks: {
+      forkA: 'demo-strategy-a-fork',
+      forkB: 'demo-strategy-b-fork'
     },
-    performance: { 
-      strategyA: performanceA, 
-      strategyB: performanceB 
+    performance: {
+      strategyA: performanceA,
+      strategyB: performanceB
     },
     comparison,
     recommendation
   };
+
+  console.log('Demo Mode: Generated result structure:', {
+    hasStrategies: !!result.strategies,
+    strategyAIndexes: result.strategies?.strategyA?.indexes?.length,
+    strategyBIndexes: result.strategies?.strategyB?.indexes?.length,
+    hasComparison: !!result.comparison,
+    comparisonStrategyA: result.comparison?.strategyA,
+    comparisonStrategyB: result.comparison?.strategyB,
+    hasRecommendation: !!result.recommendation,
+    improvementPercentage: result.comparison?.improvement?.percentage
+  });
+
+  return result;
 };
 
 export const simulateOptimizationProgress = (onUpdate) => {

@@ -1,10 +1,7 @@
 # Tiger Cloud Setup & Deployment Guide
 
-## 🎯 For Hackathon Judges & Testers
-
 This guide helps you deploy and test the Forked A/B Index Optimizer on Tiger Cloud.
 
----
 
 ## Prerequisites
 
@@ -18,7 +15,6 @@ This guide helps you deploy and test the Forked A/B Index Optimizer on Tiger Clo
    - Git installed
    - Terminal access
 
----
 
 ## 🚀 Step 1: Install Tiger CLI
 
@@ -388,20 +384,6 @@ vercel deploy
 3. Build command: `npm run build`
 4. Start command: `npm start`
 
----
-
-## 📞 Support
-
-### Tiger Data Support
-- Documentation: https://docs.tigerdata.com
-- Discord: [Tiger Data Community]
-- Email: support@tigerdata.com
-
-### Project Issues
-- GitHub Issues: [Your repository]/issues
-- Email: [Your contact email]
-
----
 
 ## ✅ Quick Verification Checklist
 
@@ -437,9 +419,3 @@ Before submitting, verify:
    - Multi-agent coordination
    - Hybrid search insights
    - Confidence-scored recommendations
-
----
-
-**Last Updated**: November 2025
-**For**: Agentic Postgres Challenge
-**By**: Forked A/B Index Optimizer Team

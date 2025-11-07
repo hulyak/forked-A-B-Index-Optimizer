@@ -1,16 +1,9 @@
 # Testing Credentials & Access Guide
 
-## 🎯 For Hackathon Judges
-
-This document provides all necessary credentials and access information for testing the Forked A/B Index Optimizer.
-
----
-
 ## 🌐 Live Demo Access
 
 ### Public Demo Instance
 - **URL**: [Your deployed URL - e.g., https://forked-ab-optimizer.vercel.app]
-- **Status**: ✅ Live and accessible
 - **No authentication required**
 
 ### Demo Mode
@@ -147,7 +140,7 @@ email: charlie@example.com
 
 ---
 
-## 🔍 What to Look For (Judge Checklist)
+## 🔍 What to Look For 
 
 ### ✅ Agentic Postgres Features
 
@@ -190,43 +183,6 @@ All Agentic Postgres features work correctly:
 - ✅ Multi-agent coordination working
 - ✅ Hybrid search operational
 
----
-
-## 📞 Support During Judging
-
-### If You Encounter Issues
-
-1. **Check Health Endpoint**
-   ```bash
-   curl https://[your-url]/health
-   ```
-
-2. **Try Demo Mode**
-   - Toggle Demo Mode ON for simulated experience
-   - This works without Tiger Cloud connection
-
-3. **Review Logs**
-   - Browser console shows detailed errors
-   - Network tab shows API requests/responses
-
-4. **Contact Us**
-   - Email: [your-email]
-   - GitHub Issues: [repository-url]/issues
-   - Discord: [your-discord-handle]
-
----
-
-## 🎥 Video Demo
-
-If you prefer watching before testing:
-
-**90-Second Walkthrough**: [YouTube/Loom link]
-- Shows complete optimization workflow
-- Highlights all Agentic Postgres features
-- Demonstrates agent coordination
-- Explains results interpretation
-
----
 
 ## 📊 Performance Benchmarks
 
@@ -285,22 +241,6 @@ Before starting your evaluation:
 
 ---
 
-## 📝 Feedback Welcome
-
-We'd love to hear your thoughts:
-- What worked well?
-- What could be improved?
-- Did it surprise you ("I didn't know you could do that!")?
-- Would you use this in production?
-
----
-
-**Last Updated**: November 2025
-**For**: Agentic Postgres Challenge Judges
-**Project**: Forked A/B Index Optimizer
-
----
-
 ## Quick Reference Commands
 
 ```bash
@@ -318,3 +258,11 @@ tail -f logs/app.log
 ```
 
 
+## 📊 Demo Workflow
+
+1. **Query Analysis** - AI examines WHERE clauses, JOINs, ORDER BY patterns
+2. **Strategy Generation** - Creates basic single-column vs advanced composite indexes
+3. **Fork Creation** - Spins up isolated test environments instantly
+4. **Performance Testing** - Runs EXPLAIN ANALYZE on identical query sets
+5. **Results Comparison** - Visual charts showing execution times and recommendations
+6. **Safe Deployment** - Evidence-backed suggestions with confidence levels
